@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: ao-app
 category: ai
 name: AO
-version: "1.0.2"
+version: "1.0.3"
 tagline: Assistente pessoal privado com memoria duradoura
 description: >-
   AO e um assistente pessoal que roda no seu proprio servidor. Conversa por
@@ -14,9 +14,9 @@ description: >-
   por uma senha unica definida no primeiro acesso, sem e-mail e sem cadastro.
 
 
-  Para usar modelos de IA, informe uma chave da OpenRouter ou da NVIDIA nas
-  configuracoes do app. Sem chave, a interface funciona, mas as respostas ficam
-  indisponiveis.
+  Para usar modelos de IA, informe uma chave da OpenRouter, da NVIDIA ou do
+  Google nas configuracoes do app. Sem chave, a interface funciona, mas as
+  respostas ficam indisponiveis.
 developer: JovemDupe
 website: ""
 dependencies: []
@@ -28,9 +28,9 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Adiciona o Google Gemini como terceiro provedor, sempre por ultimo, usando a
-  cota gratuita. O OpenRouter fica restrito ao roteador gratuito e modelos pagos
-  passam a ser bloqueados no servidor.
+  Troca o modelo do Google para gemini-3.8-flash, com gemini-3.5-flash-lite como
+  segunda tentativa dentro do proprio Google. O gemini-2.5-flash nao esta mais
+  disponivel para projetos novos.
 storage:
   dataRoot: data
 folderAccess:
