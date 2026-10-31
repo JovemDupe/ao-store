@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: ao_server_1
+      APP_HOST: ao-app_server_1
       APP_PORT: 8000
       # A autenticacao e do proprio AO (senha unica), entao o proxy do Umbrel
       # nao injeta login por cima: dois logins confundiriam o uso diario.

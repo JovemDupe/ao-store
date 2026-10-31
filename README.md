@@ -13,8 +13,8 @@ Loja de aplicativos do Umbrel com o pacote do **AO**.
 ## O que este repositorio contem
 
 - `umbrel-app-store.yml`: identidade da loja.
-- `ao/umbrel-app.yml`: manifesto do app, incluindo as pastas opcionais.
-- `ao/docker-compose.yml`: como o app roda no umbrelOS.
+- `ao-app/umbrel-app.yml`: manifesto do app, incluindo as pastas opcionais.
+- `ao-app/docker-compose.yml`: como o app roda no umbrelOS.
 
 A imagem da aplicacao fica em `ghcr.io/jovemdupe/ao`. Ela contem apenas o
 programa. Historico, memoria e arquivos ficam no volume de dados do app, no seu
