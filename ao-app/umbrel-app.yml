@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: ao-app
 category: ai
 name: AO
-version: "1.0.0"
+version: "1.0.1"
 tagline: Assistente pessoal privado com memoria duradoura
 description: >-
   AO e um assistente pessoal que roda no seu proprio servidor. Conversa por
@@ -28,8 +28,9 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Primeira versao empacotada para umbrelOS. Login por senha com configuracao no
-  primeiro acesso e acesso opcional a pastas do servidor.
+  Adiciona ferramentas de arquivo: o AO agora lista, le e grava arquivos de
+  texto na pasta liberada em Configuracoes (montada em /files), sempre preso
+  a essa pasta. Mantem a senha configurada no primeiro acesso.
 storage:
   dataRoot: data
 folderAccess:
