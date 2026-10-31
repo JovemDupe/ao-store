@@ -1,0 +1,51 @@
+manifestVersion: 1.1
+id: ao
+category: ai
+name: AO
+version: "1.0.0"
+tagline: Assistente pessoal privado com memoria duradoura
+description: >-
+  AO e um assistente pessoal que roda no seu proprio servidor. Conversa por
+  texto, guarda memoria entre sessoes, gera documentos e planilhas, e pode ler
+  arquivos das pastas que voce liberar.
+
+
+  Tudo fica no seu Umbrel: historico, memoria e arquivos. O acesso e protegido
+  por uma senha unica definida no primeiro acesso, sem e-mail e sem cadastro.
+
+
+  Para usar modelos de IA, informe uma chave da OpenRouter ou da NVIDIA nas
+  configuracoes do app. Sem chave, a interface funciona, mas as respostas ficam
+  indisponiveis.
+developer: JovemDupe
+website: ""
+dependencies: []
+repo: ""
+support: ""
+port: 8000
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Primeira versao empacotada para umbrelOS. Login por senha com configuracao no
+  primeiro acesso e acesso opcional a pastas do servidor.
+storage:
+  dataRoot: data
+folderAccess:
+  - id: arquivos
+    name: Arquivos do AO
+    note: >-
+      Pasta que o AO pode ler e gravar. Ela aparece dentro do app em /files.
+      Escolha uma pasta especifica em vez da Home inteira.
+    mounts:
+      - service: server
+        targetPath: /files
+        readOnly: false
+  - id: leitura
+    name: Pasta somente leitura
+    note: Pasta extra montada em /media, apenas para leitura.
+    mounts:
+      - service: server
+        targetPath: /media
+        readOnly: true

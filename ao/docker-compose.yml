@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: ao_server_1
+      APP_PORT: 8000
+      # A autenticacao e do proprio AO (senha unica), entao o proxy do Umbrel
+      # nao injeta login por cima: dois logins confundiriam o uso diario.
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/jovemdupe/ao:1.0.0
+    restart: on-failure
+    stop_grace_period: 20s
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    environment:
+      APP_ENV: "prod"
+      DATABASE_PATH: "/app/data/assistente.db"
+      FRONTEND_DIST: "/app/frontend/dist"
+      # Semente unica do app: assina o cookie de sessao. Nao e a senha.
+      SESSION_SECRET: "${APP_SEED}"
+      SESSION_DAYS: "90"
+      # Opcional: define a senha pelo compose em vez da tela de primeiro acesso.
+      APP_PASSWORD_HASH: "${APP_AO_PASSWORD_HASH:-}"
+      # Pastas liberadas em "Configuracoes do app" (folderAccess).
+      FILES_ROOT: "/files"
+      FILES_READONLY_ROOT: "/media"
+      OPENROUTER_API_KEY: "${APP_AO_OPENROUTER_API_KEY:-}"
+      OPENROUTER_MODELS: "${APP_AO_OPENROUTER_MODELS:-}"
+      OPENROUTER_BASE_URL: "${APP_AO_OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}"
+      NVIDIA_API_KEY: "${APP_AO_NVIDIA_API_KEY:-}"
+      NVIDIA_MODELS: "${APP_AO_NVIDIA_MODELS:-}"
+      CONTEXT_TOKEN_BUDGET: "64000"
+      PROVIDER_COOLDOWN_S: "60"
+      QUOTA_COOLDOWN_S: "900"
+      DEGRADED_PROBE_S: "300"
+      MAX_HISTORY_MESSAGES: "20"
+      MAX_TOOL_ROUNDS: "3"
+      TOOL_TIMEOUT_S: "10"
+      REQUEST_TIMEOUT_S: "90"
