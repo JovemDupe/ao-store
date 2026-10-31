@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: ao-app
 category: ai
 name: AO
-version: "1.0.1"
+version: "1.0.2"
 tagline: Assistente pessoal privado com memoria duradoura
 description: >-
   AO e um assistente pessoal que roda no seu proprio servidor. Conversa por
@@ -28,9 +28,9 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Adiciona ferramentas de arquivo: o AO agora lista, le e grava arquivos de
-  texto na pasta liberada em Configuracoes (montada em /files), sempre preso
-  a essa pasta. Mantem a senha configurada no primeiro acesso.
+  Adiciona o Google Gemini como terceiro provedor, sempre por ultimo, usando a
+  cota gratuita. O OpenRouter fica restrito ao roteador gratuito e modelos pagos
+  passam a ser bloqueados no servidor.
 storage:
   dataRoot: data
 folderAccess:

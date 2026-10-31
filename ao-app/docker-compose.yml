@@ -10,7 +10,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   server:
-    image: ghcr.io/jovemdupe/ao:1.0.1
+    image: ghcr.io/jovemdupe/ao:1.0.2
     restart: on-failure
     stop_grace_period: 20s
     volumes:
@@ -32,6 +32,10 @@ services:
       OPENROUTER_BASE_URL: "${APP_AO_OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}"
       NVIDIA_API_KEY: "${APP_AO_NVIDIA_API_KEY:-}"
       NVIDIA_MODELS: "${APP_AO_NVIDIA_MODELS:-}"
+      GOOGLE_API_KEY: "${APP_AO_GOOGLE_API_KEY:-}"
+      GOOGLE_MODELS: "${APP_AO_GOOGLE_MODELS:-}"
+      # Trava dura: o app nunca chama modelo pago.
+      ALLOW_PAID_MODELS: "false"
       CONTEXT_TOKEN_BUDGET: "64000"
       PROVIDER_COOLDOWN_S: "60"
       QUOTA_COOLDOWN_S: "900"
